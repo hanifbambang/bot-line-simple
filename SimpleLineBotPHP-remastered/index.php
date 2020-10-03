@@ -35,13 +35,13 @@ $app->post('/', function ($request, $response)
 	}
 
 	// is this request comes from LINE?
-	if($_ENV['PASS_SIGNATURE'] == false && ! SignatureValidator::validateSignature($body, $_ENV['CHANNEL_SECRET'], $signature)){
+	if($_ENV['PASS_SIGNATURE'] == false && ! SignatureValidator::validateSignature($body, $_ENV['5695eb3d47bf68a0b8d3ac51b4d01f00'], $signature)){
 		return $response->withStatus(400, 'Invalid signature');
 	}
 
 	// init bot
-	$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($_ENV['CHANNEL_ACCESS_TOKEN']);
-	$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $_ENV['CHANNEL_SECRET']]);
+	$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($_ENV['XEVPDoVEJYtqNITvc9efP1iuugd+v6TSlRAzXcA2t97iels2pcjiXIAHN7UaODAvtivG8g/abNzpOfliillgW/KVEvBepzgBQ1hL6zEzsV0WJCCsH8pPrOwGmONsysCwaBnDXxSAR2JVxlH+T/CgpQdB04t89/1O/w1cDnyilFU=']);
+	$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $_ENV['5695eb3d47bf68a0b8d3ac51b4d01f00']]);
 	$data = json_decode($body, true);
 	foreach ($data['events'] as $event)
 	{
@@ -61,7 +61,7 @@ $app->post('/', function ($request, $response)
 
 // $app->get('/push/{to}/{message}', function ($request, $response, $args)
 // {
-// 	$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($_ENV['CHANNEL_ACCESS_TOKEN']);
+// 	$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($_ENV['XEVPDoVEJYtqNITvc9efP1iuugd+v6TSlRAzXcA2t97iels2pcjiXIAHN7UaODAvtivG8g/abNzpOfliillgW/KVEvBepzgBQ1hL6zEzsV0WJCCsH8pPrOwGmONsysCwaBnDXxSAR2JVxlH+T/CgpQdB04t89/1O/w1cDnyilFU=']);
 // 	$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $_ENV['CHANNEL_SECRET']]);
 
 // 	$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($args['message']);
